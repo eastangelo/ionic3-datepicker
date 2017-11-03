@@ -36,21 +36,25 @@ import {FormControl} from '@angular/forms';
                     <button (click)="prevMonth()" [disabled]="previousDisabled"
                             ion-button=""
                             class="disable-hover button button-ios button-default button-default-ios">
-                <span class="button-inner">
-                    <ion-icon name="arrow-back" role="img"
-                              class="icon icon-ios ion-ios-arrow-back" aria-label="arrow-back" ng-reflect-name="arrow-back">
-
-                    </ion-icon></span>
+                        <span class="button-inner">
+                            <ion-icon name="arrow-back" role="img"
+                                      class="icon icon-ios ion-ios-arrow-back" aria-label="arrow-back" ng-reflect-name="arrow-back">
+                            </ion-icon>
+                        </span>
                         <div class="button-effect"></div>
                     </button>
-                    <select title="Month" name="equiptype" class="form-control" [formControl]="monthChanged" [(ngModel)]="selectedMonth" required>
-                        <option></option>
-                        <option *ngFor="let mon of months" [ngValue]="mon">{{mon}}</option>
-                    </select>
-                    <select title="Month" name="equiptype" class="form-control" [formControl]="yearChanged" [(ngModel)]="selectedYear" required>
-                        <option></option>
-                        <option *ngFor="let yea of yearsMaxMin" [ngValue]="yea">{{yea}}</option>
-                    </select>
+                    <div class="container-select month-select">
+                        <select title="Month" name="equiptype" class="form-control" [formControl]="monthChanged" [(ngModel)]="selectedMonth" required>
+                            <option></option>
+                            <option *ngFor="let mon of months" [ngValue]="mon">{{mon}}</option>
+                        </select>
+                    </div>
+                    <div class="container-select year-select">
+                        <select title="Year" name="equiptype" class="form-control" [formControl]="yearChanged" [(ngModel)]="selectedYear" required>
+                            <option></option>
+                            <option *ngFor="let yea of yearsMaxMin" [ngValue]="yea">{{yea}}</option>
+                        </select>
+                    </div>
                     <button (click)="nextMonth()" [disabled]="nextDisabled"
                             ion-button=""
                             class="disable-hover button button-ios button-default button-default-ios">
@@ -246,7 +250,11 @@ export class DatePickerComponent {
                 public navParams: NavParams,
                 public DatepickerService: DateService) {
         this.config = this.navParams.data;
-        this.selectedDate = this.navParams.data.date;
+        if (this.navParams.data.date) {
+            this.selectedDate = this.navParams.data.date
+        } else {
+            this.selectedDate = new Date();
+        }
         this.initialize();
 
     }
@@ -434,6 +442,7 @@ export class DatePickerComponent {
     }
 
     public getTempMonth() {
+        if (!this.tempDate) this.tempDate = new Date();
         return this.months[this.tempDate.getMonth()];
     }
 
@@ -512,7 +521,7 @@ export class DatePickerComponent {
         testDate.setDate(0);
         // testDate.setDate(this.tempDate.getDate());
         if ((!this.config.min ||
-                (this.config.min <= testDate)) || this.config.showMaxAndMin) {
+            (this.config.min <= testDate)) || this.config.showMaxAndMin) {
             this.setDateAfterSelection(testDate);
         }
     }

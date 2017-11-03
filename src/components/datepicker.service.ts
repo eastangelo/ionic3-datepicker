@@ -45,7 +45,7 @@ export class DateService {
     }
 
     public createDateList(currentDate: Date) {
-        if(currentDate) currentDate = new Date();
+        if(!currentDate) currentDate = new Date();
         let firstDayOfWeek = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1).getDay();
         let firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1).getDate();
         let lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
