@@ -1,15 +1,15 @@
 {
-  "name": "ionic3-datepicker",
+  "name": "ion-datepicker-3",
   "version": "2.5.2",
   "description": "A date picker for ionic 3 and 2 framework",
   "main": "index.js",
   "author": "Angelo Di Marzio <eastangelo@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/eastangelo/ionic3-datepicker"
+    "url": "https://github.com/eastangelo/ion-datepicker-3"
   },
   "keywords": [
-    "ionic3-datepicker",
+    "ion-datepicker-3",
     "ionic3",
     "ionic3 datepicker",
     "datepicker",
