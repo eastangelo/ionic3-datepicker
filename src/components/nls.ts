@@ -43,6 +43,10 @@ export module nls {
             'zh-TW': {
                 weekdays: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
                 months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
+            },
+            'it-IT': {
+                weekdays: ['Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab', 'Dom'],
+                months: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre']
             }
         };
 
@@ -61,4 +65,4 @@ export module nls {
         return keys.some(key => key === locale);
     }
 }
-export type languages = string | 'en-US' | 'en-UK' | 'pt-BR' | 'he-IL' | 'ru-RU' | 'de' | 'fi' | 'zh-TW' | 'zh-CN' | 'custom';
+export type languages = string | 'en-US' | 'en-UK' | 'pt-BR' | 'he-IL' | 'ru-RU' | 'de' | 'fi' | 'zh-TW' | 'zh-CN' | 'it-IT' | 'custom';
