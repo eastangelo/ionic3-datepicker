@@ -5,7 +5,7 @@
 ### 1) Install using npm ###
 
 ```
-    npm i ion-datepicker3 --save
+    npm i ion-datepicker-3 --save
 ```
 
 ### 2) Add it to your ngModule in app.module ###
