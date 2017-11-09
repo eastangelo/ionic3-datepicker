@@ -14,7 +14,8 @@ export class DatePickerDirective {
 
     @Input() public max: Date;
     @Input() public min: Date;
-
+    @Input() public disabled: boolean = false;
+                                                         
     @Input()
     public set locale(val: string) {
         if (val)
@@ -56,6 +57,10 @@ export class DatePickerDirective {
     }
 
     public open() {
+        if (this.disabled) {
+            return;
+        }
+                                                         
         const data = <DatePickerData>{
             min: this.min,
             max: this.max,
